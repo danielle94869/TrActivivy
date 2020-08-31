@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { Activity, User } = require('../models')
+const { Activity } = require('../models')
 
 router.get('/activities', (req, res) => {
   Activity.findAll({ include: [ User ] })
