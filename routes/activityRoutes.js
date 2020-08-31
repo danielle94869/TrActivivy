@@ -2,7 +2,7 @@ const router = require('express').Router()
 const { Activity } = require('../models')
 
 router.get('/activities', (req, res) => {
-  Activity.findAll({ include: [ User ] })
+  Activity.findAll()
   .then(activities => res.json(activities))
   .catch(err => console.log(err))
 })
