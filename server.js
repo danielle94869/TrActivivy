@@ -10,5 +10,5 @@ app.use(express.json())
 app.use(require('./routes'))
 // {force:true}
 require('./db').sync()
-  .then(() => app.listen(process.env.PORT || 3001))
+  .then(() => app.listen(process.env.PORT || 3000))
   .catch(err => console.log(err))
