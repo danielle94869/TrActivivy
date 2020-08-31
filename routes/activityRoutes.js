@@ -10,7 +10,7 @@ router.get('/activities', (req, res) => {
 router.post('/activities', (req, res) => {
   Activity.create(req.body)
     .then(activity => {
-      Activity.findOne({ where: { id: activity.id }, include: [User] })
+      Activity.findOne({ where: { id: activity.id } })
         .then(fullActivity => res.json(fullActivity))
     })
     .catch(err => console.log(err))
