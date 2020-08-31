@@ -2,17 +2,21 @@
 const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../db')
 
-class Activity extends Model { }
+class User extends Model { }
 
-Activity.init({
+User.init({
   name: {
     type: DataTypes.STRING,
     allowNull: false
   },
-  cost: {
+  income: {
+    type: DataTypes.DOUBLE,
+    allowNull: false
+  },
+  expense: {
     type: DataTypes.DOUBLE,
     allowNull: false
   }
-}, { sequelize, modelName: 'activity' })
+}, { sequelize, modelName: 'user' })
 
-module.exports = Activity
+module.exports = User
