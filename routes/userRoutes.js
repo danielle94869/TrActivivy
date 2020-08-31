@@ -1,8 +1,8 @@
 const router = require('express').Router()
-const { Activity, User } = require('../models')
+const { User } = require('../models')
 
 router.get('/users', (req, res) => {
-  User.findAll({ include: Activity })
+  User.findAll()
     .then(users => res.json(users))
     .catch(err => console.log(err))
 })
@@ -10,7 +10,7 @@ router.get('/users', (req, res) => {
 router.post('/users', (req, res) => {
   User.create(req.body)
     .then(user => {
-      User.findOne({ where: { id: user.id }, include: Activity })
+      User.findOne({ where: { id: user.id }, include: [Activity] })
         .then(fullUser => res.json(fullUser))
     })
     .catch(err => console.log(err))
