@@ -17,6 +17,7 @@ User.init({
     type: DataTypes.DOUBLE,
     allowNull: false
   }
+  // remaining property
 }, { sequelize, modelName: 'user' })
 
 module.exports = User
