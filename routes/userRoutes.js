@@ -8,6 +8,7 @@ router.get('/users', (req, res) => {
 })
 
 router.post('/users', (req, res) => {
+  console.log(req.body)
   User.create(req.body)
     .then(user => {
       console.log(user)
