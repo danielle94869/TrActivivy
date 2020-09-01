@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <title>Main page app</title>
+</head>
+
+<body>
+
+  <nav>
+    <div class="nav-wrapper">
+      <a href="index.html" class="brand-logo">App</a>
+      <a href="index.html" data-target="mobile-links" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="calculate.html">Calculator</a></li>
+        <li><a href="history.html">Activities</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-links">
+    <li><a href="calculate.html">Calculator</a></li>
+    <li><a href="history.html">Activities</a></li>
+  </ul>
+
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="full_name" type="text" class="validate">
+          <label for="full">Full Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="activity" type="text" class="validate">
+          <label for="activity">Activity</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="cost" type="text" class="validate">
+          <label for="cost">Activity Cost</label>
+        </div>
+      </div>
+    </form>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+  </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.sidenav').sidenav();
+    })
+  </script>
+</body>
+
+</html>
