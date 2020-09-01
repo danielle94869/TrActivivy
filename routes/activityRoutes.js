@@ -2,7 +2,8 @@ const router = require('express').Router()
 const { Activity } = require('../models')
 
 router.get('/activities', (req, res) => {
-  Activity.findAll(activities => console.log(activities)
+  Activity.findAll(
+    // activities => console.log(activities)
     //   {
     //   res.render('index', { activities })
     // }
