@@ -1,11 +1,11 @@
-const { User } = require('../models/user.js')
+// const { User } = require('../models/user.js')
 document.getElementById('create').addEventListener('click', event => {
   axios.post('/api/users', {
-    name: document.getElementById('full_name').val()
+    name: document.getElementById('full_name').value
   }).then(data =>
     axios.post('/api/activities', {
-      name: document.getElementById('activity').val(),
-      cost: document.getElementById('cost').val(),
+      name: document.getElementById('activity').value,
+      cost: document.getElementById('cost').value,
       userId: data.id
     }).then(data => console.log(data)))
     .catch(err => console.log(err))
