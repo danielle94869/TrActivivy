@@ -8,14 +8,6 @@ User.init({
   name: {
     type: DataTypes.STRING,
     allowNull: false
-  },
-  income: {
-    type: DataTypes.DOUBLE,
-    allowNull: false
-  },
-  expense: {
-    type: DataTypes.DOUBLE,
-    allowNull: false
   }
 }, { sequelize, modelName: 'user' })
 

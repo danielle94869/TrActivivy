@@ -20,7 +20,11 @@
   "homepage": "https://github.com/danielle94869/project-2#readme",
   "dependencies": {
     "express": "^4.17.1",
+<<<<<<< HEAD
     "mysql2": "^2.1.0",
     "sequelize": "^6.3.4"
+=======
+    "sequelize": "^6.3.5"
+>>>>>>> f08ed45cc4fece4f720a0c89589af6f66b4a9101
   }
 }
