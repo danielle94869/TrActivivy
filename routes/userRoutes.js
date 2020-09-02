@@ -27,7 +27,6 @@ router.get('/users/:name', (req, res) => {
     .catch(err => console.log(err))
 })
 
-
 module.exports = router
 
 // // Get all groceries
