@@ -47,17 +47,33 @@
       </div>
     </div>
   </div>
+
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card red lighten-2">
+          <div class="card-content white-text">
+            <span class="card-title">According to our calculations...</span>
+            <p>We advise that you can (or not) do this activity.</p>
+          </div>
+          <div class="card-action">
+            <a href="./activity.html">View Activities Page</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
   <canvas id="myChart"></canvas>
 
   <script>
     document.getElementById('user-name').innerHTML = localStorage.getItem('tempName')
-    localStorage.removeItem('tempName')
+    // localStorage.removeItem('tempName')
     // localStorage.setItem('tempName', '')
   </script>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
   
   <script>
   // let loader = setInterval(function () {
@@ -86,24 +102,38 @@
   <script src="./calculate.js"></script>
 
   <!-- script for piechart -->
-  <!-- <script>
-    var myPieChart = new Chart(ctx, {
-      type: 'pie',
-      data = {
-        datasets: [{
-          data: [10, 20, 30]
-        }],
-        // data set: expense, cost, third is income - cost - expense
-        // These labels appear in the legend and in the tooltips when hovering different arcs
-        labels: [
-          'Red',
-          'Yellow',
-          'Blue'
+          <!-- // data set: expense, cost, third is income - cost - expense
+          // These labels appear in the legend and in the tooltips when hovering different arcs -->
+<canvas id="myChart" width="400" height="400"></canvas>
+<script>
+  var ctx = document.getElementById('myChart');
+  var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: ['Remaining', 'Expenses', 'Activity Cost'],
+      datasets: [{
+        data: [
+          document.getElementById, 
+          19, 
+          3
         ],
-        options: Chart.defaults.pie
-      }
-    })
-  </script> -->
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(75, 192, 192, 0.2)'
+
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(75, 192, 192, 1)'
+
+        ],
+        borderWidth: 1
+      }]
+    }
+  });
+</script>
 </body>
 
 </html>
