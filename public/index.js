@@ -7,12 +7,17 @@ document.getElementById('create').addEventListener('click', event => {
       name: document.getElementById('activity').value,
       cost: document.getElementById('cost').value,
       userId: res.data.id
-    }).then(data => console.log(data)))
+    }).then(data => {
+      console.log(data)
+      window.location = 'calculate.html'
+    })
+  )
     .catch(err => console.log(err)
     )
     .catch(err => console.log(err))
 })
 
+// module.exports = User
 
 // document.getElementById('addGrocery').addEventListener('click', event => {
 //   event.preventDefault()
