@@ -16,15 +16,15 @@
       <a href="index.html" class="brand-logo">App</a>
       <a href="index.html" data-target="mobile-links" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="calculate.html">Calculator</a></li>
-        <li><a href="history.html">Activities</a></li>
+        <li><a href="./calculate.html">Calculator</a></li>
+        <li><a href="./history.html">Activities</a></li>
       </ul>
     </div>
   </nav>
 
   <ul class="sidenav" id="mobile-links">
-    <li><a href="calculate.html">Calculator</a></li>
-    <li><a href="history.html">Activities</a></li>
+    <li><a href="./calculate.html">Calculator</a></li>
+    <li><a href="./history.html">Activities</a></li>
   </ul>
 
   <div class="row">
@@ -35,9 +35,10 @@
             <h1>Calculator</h1>
           </header>
           <form action="javascript:void(calc())">
+            Name: <input id="userName" type="text">
             Income: <input id="income" type="text">
             Expenses: <input id="expenses" type="text">
-            <button class="btn waves-effect waves-light" type="submit" name="action" value="Calculate">Calculate</button>
+            <button class="btn waves-effect waves-light" type="submit" name="action" value="Calculate" id="calculate">Calculate</button>
             Total: <span id="total"></span>
           </form>
         </div>
@@ -52,9 +53,16 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script>
-    $(document).ready(function () {
-      $('.sidenav').sidenav()
+  let loader = setInterval(function () {
+    if (document.readyState !== "complete") {
+      return
+    }
+    clearInterval(loader)
+    $('.sidenav').sidenav()
     })
+  // $(document).ready(function () {
+    //   $('.sidenav').sidenav()
+    // })
   </script>
   <script>
     function calc() {
@@ -68,6 +76,8 @@
       document.getElementById('expenses').value = ''
     }
   </script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+  <script src="./calculate.js"></script>
 
   <!-- script for piechart -->
   <!-- <script>
