@@ -2,7 +2,12 @@ const router = require('express').Router()
 const { User, Activity } = require('../models')
 
 router.get('/users', (req, res) => {
+<<<<<<< HEAD
   User.findAll({include: Activity})
+=======
+  console.log(res)
+  User.findAll({ include: Activity })
+>>>>>>> 77b18dde88d115b0cc713ba1003d51fe30eb21f9
     .then(users => res.json(users))
     .catch(err => console.log(err))
 })
@@ -17,6 +22,15 @@ router.post('/users', (req, res) => {
     })
     .catch(err => console.log(err))
 })
+
+router.get('/users/:name', (req, res) => {
+  console.log(res)
+  User.findOne({ where: { name: req.params.name }, include: Activity })
+    .then(user => res.json(user)
+    )
+    .catch(err => console.log(err))
+})
+
 
 module.exports = router
 

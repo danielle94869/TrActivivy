@@ -26,6 +26,7 @@ document.getElementById('create').addEventListener('click', event => {
     .catch(err => console.log(err))
 })
 
+
 // document.getElementById('addGrocery').addEventListener('click', event => {
 //   event.preventDefault()
 
