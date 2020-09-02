@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-function calc() {
-    document.getElementById("total").innerHTML = "$" + Number(total)
-    document.getElementById('income').value = ''
-    document.getElementById('expenses').value = ''
-    
-    let income = Number(document.getElementById('income').value)
-    let expense = Number(document.getElementById('expense').value)
-    let total = income - expenses  
-  }
-  calc()
-
-=======
 // const { User } = require('../models/user.js')
 document.getElementById('create').addEventListener('click', event => {
   axios.post('/api/users', {
@@ -95,4 +82,3 @@ document.getElementById('create').addEventListener('click', event => {
 // //     let sum = parseInt(a) + parseInt(b)
 // //     alert(a + b)
 // //   }
->>>>>>> 7ce13898c91439f11a6f52b9c10b3425cc45bd85
