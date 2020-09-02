@@ -8,8 +8,10 @@ router.get('/users', (req, res) => {
 })
 
 router.post('/users', (req, res) => {
+  console.log(req.body)
   User.create(req.body)
     .then(user => {
+      console.log(user)
       User.findOne({ where: { id: user.id }, include: Activity })
         .then(fullUser => res.json(fullUser))
     })
