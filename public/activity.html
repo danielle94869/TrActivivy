@@ -11,6 +11,7 @@
 </head>
 
 <body>
+  <!-- START OF NAVBAR -->
   <nav>
     <div class="nav-wrapper">
       <a href="index.html" class="brand-logo">App</a>
@@ -18,63 +19,71 @@
       <ul class="right hide-on-med-and-down">
         <li><a href="./index.html">Home Page</a></li>
         <li><a href="./calculate.html">Calculator</a></li>
-        <li><a href="./history.html">Activities</a></li>
+        <li><a href="./activity.html">Activities</a></li>
       </ul>
     </div>
   </nav>
+  <!-- END OF NAVBAR -->
 
+  <!-- Unordered LIST -->
   <ul class="sidenav" id="mobile-links">
     <li><a href="./index.html">Home Page</a></li>
     <li><a href="./calculate.html">Calculator</a></li>
-    <li><a href="./history.html">Activities</a></li>
+    <li><a href="./activity.html">Activities</a></li>
   </ul>
 
+  <!-- START OF OUR HISTORY ACTIVITY -->
   <div class="row">
     <div class="col s12 m6">
-      <div class="card">
-        <span class="card-title">Activity Title</span>
-        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">+</i></a>
-        <div class="card-content">
-          <p>Name:</p>
-          <p>Activity Cost:</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col s12 m6">
-      <div class="card">
-        <span class="card-title">Activity Title2</span>
-        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">+</i></a>
-        <div class="card-content">
-          <p>Name:</p>
-          <p>Activity Cost:</p>
-        </div>
-      </div>
+      <hr>
+      <button id="viewHistory">Recent Activities</button>
+      <hr>
+      <div id="activities"></div>
     </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
   <script>
-    let loader = setInterval(function () {
-      if (document.readyState !== "complete")
-        return
-      clearInterval(loader)
+    // let loader = setInterval(function () {
+    //   if (document.readyState !== "complete")
+    //     return
+    //   clearInterval(loader)
+    //   $('.sidenav').sidenav()
+    // })
+    $(document).ready(function () {
       $('.sidenav').sidenav()
     })
-    // $(document).ready(function () {
-      //   $('.sidenav').sidenav()
-      // })
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="./history.js"></script>
-  <!-- <script>
-    $(document).ready(function () {
-      $('.sidenav').sidenav();
-    })
-  </script> -->
-</body>
 
+  <script>
+    document.getElementById('viewHistory').addEventListener('click', event => {
+      event.preventDefault()
+      console.log('ping')
+
+      // GET ALL activities
+      axios.get('/api/activities')
+        .then(({ data }) => {
+          console.log(data)
+          data.forEach(activity => {
+            let activityElem = document.createElement('div')
+            activityElem.innerHTML = `
+            <div id= "${activity.id}" class="card">
+              <span class="card-title"> Activity Title: ${activity.name}</span>
+              <div class="card-content">
+                <p> Activity Cost: $${activity.cost} </p>
+                <p> Activity ID: ${activity.id}</p>
+              </div>
+            </div>
+          `
+            document.getElementById('activities').prepend(activityElem)
+          })
+        })
+        .catch(err => console.error(err))
+      })
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</body>
 </html>
