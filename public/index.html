@@ -59,23 +59,34 @@
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="./app.js"></script>
   <script>
-    $(document).ready(function () {
-    //   const { User } = require('../models/user.js')
-      $('.sidenav').sidenav();
-    //   document.getElementById('create').addEventListener('click', event => {
-  
-    //       axios.post('/api/users', {
-    //         name: document.getElementById("#full_name").val()
-    //       }).then(data=>
-    //         axios.post('/api/activities', {
-    //           name: document.getElementById("#activity").val(),
-    //           cost: document.getElementById("#cost").val(),
-    //           userId: data.id
-    //         }).then(data => console.log(data)))
-    //         .catch(err => console.log(err))
-    //       .catch(err => console.log(err))
-    //     })
+    let loader = setInterval(function () {
+      if (document.readyState !== "complete"){
+        return
+        }
+      clearInterval(loader)
+      $('.sidenav').sidenav()
     })
+  // $(document).ready(function () {
+    //   $('.sidenav').sidenav()
+    // })
+    
+    // $(document).ready(function () {
+    // //   const { User } = require('../models/user.js')
+    //   $('.sidenav').sidenav();
+    // //   document.getElementById('create').addEventListener('click', event => {
+  
+    // //       axios.post('/api/users', {
+    // //         name: document.getElementById("#full_name").val()
+    // //       }).then(data=>
+    // //         axios.post('/api/activities', {
+    // //           name: document.getElementById("#activity").val(),
+    // //           cost: document.getElementById("#cost").val(),
+    // //           userId: data.id
+    // //         }).then(data => console.log(data)))
+    // //         .catch(err => console.log(err))
+    // //       .catch(err => console.log(err))
+    // //     })
+    // })
   </script>
 </body>
 
