@@ -2,12 +2,8 @@ const router = require('express').Router()
 const { User, Activity } = require('../models')
 
 router.get('/users', (req, res) => {
-<<<<<<< HEAD
-  User.findAll({include: Activity})
-=======
   console.log(res)
   User.findAll({ include: Activity })
->>>>>>> 77b18dde88d115b0cc713ba1003d51fe30eb21f9
     .then(users => res.json(users))
     .catch(err => console.log(err))
 })
