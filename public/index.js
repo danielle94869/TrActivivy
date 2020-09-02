@@ -14,6 +14,7 @@ document.getElementById('create').addEventListener('click', event => {
     }).then(data => {
       console.log(document.getElementById('full-name').value)
       localStorage.setItem('tempName', document.getElementById('full-name').value)
+      localStorage.setItem('tempActivityCost', document.getElementById('cost').value)
 
       console.log(data)
       window.location = 'calculate.html'
