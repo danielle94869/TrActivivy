@@ -1,13 +1,20 @@
 // const { User } = require('../models/user.js')
 document.getElementById('create').addEventListener('click', event => {
+  // axios.post('/api/temp', {
+  //   name: document.getElementById('full_name').value
+  // }).then(res => console.log(res))
+  //   .catch(err => console.log(err))
   axios.post('/api/users', {
-    name: document.getElementById('full_name').value
+    name: document.getElementById('full-name').value
   }).then(res =>
     axios.post('/api/activities', {
       name: document.getElementById('activity').value,
       cost: document.getElementById('cost').value,
       userId: res.data.id
     }).then(data => {
+      console.log(document.getElementById('full-name').value)
+      localStorage.setItem('tempName', document.getElementById('full-name').value)
+
       console.log(data)
       window.location = 'calculate.html'
     })

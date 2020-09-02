@@ -1,6 +1,6 @@
 document.getElementById('calculate').addEventListener('click', event => {
   // console.log(document.getElementById('userName').value)
-  axios.get(`api/users/${document.getElementById('userName').value}`, (req, res) => {
+  axios.get('api/temp/', (req, res) => {
     // console.log(res.data)
     // console.log(req.data)
   })
@@ -8,3 +8,5 @@ document.getElementById('calculate').addEventListener('click', event => {
       user => console.log(user))
     .catch(err => console.log(err))
 })
+
+// axios.get activities -> append to page -> axios.get user with userId -> append to page
