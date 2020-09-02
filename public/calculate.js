@@ -1,6 +1,6 @@
 document.getElementById('calculate').addEventListener('click', event => {
   // console.log(document.getElementById('userName').value)
-  axios.get('api/temp/', (req, res) => {
+  axios.get(`api/users/${localStorage.getItem('tempName')}`, (req, res) => {
     // console.log(res.data)
     // console.log(req.data)
   })
