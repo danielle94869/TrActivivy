@@ -10,7 +10,7 @@ router.get('/activities', (req, res) => {
   ).then(activities => res.json(activities))
     .catch(err => console.log(err))
 })
-
+  
 router.post('/activities', (req, res) => {
   Activity.create(req.body)
     .then(activity => {
