@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <title>Calculator</title>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="index.html" class="brand-logo">App</a>
+      <a href="index.html" data-target="mobile-links" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="./index.html">Home Page</a></li>
+        <li><a href="./calculate.html">Calculator</a></li>
+        <li><a href="./activity.html">Activities</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-links">
+    <li><a href="./index.html">Home Page</a></li>
+    <li><a href="./calculate.html">Calculator</a></li>
+    <li><a href="./activity.html">Activities</a></li>
+  </ul>
+
+  <div class="row">
+    <div class="col s12 m6">
+      <div>
+        <div id="wrapper">
+          <header>
+            <h1>Calculator</h1>
+          </header>
+          <p id="user-name">Name: </p>
+          <form action="javascript:void(calc())">
+            Income: <input id="income" type="number">
+            Expenses: <input id="expenses" type="number">
+            <button class="btn waves-effect waves-light" type="submit" name="action" value="Calculate" id="calculate">Calculate</button>
+            <p>Activity Cost: $<span id="activity-cost"></span></p>
+            <p>Budget: <span id="budget"></span></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div id="advice"></div>
+
+  <canvas id="myChart"></canvas>
+
+  <script>
+    document.getElementById('user-name').innerHTML = localStorage.getItem('tempName')
+    document.getElementById('activity-cost').innerHTML = localStorage.getItem('tempActivityCost')
+    
+    // localStorage.removeItem('tempName')
+    // localStorage.setItem('tempName', '')
+  </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+  
+  <script>
+  // let loader = setInterval(function () {
+  //   if (document.readyState !== "complete") {
+  //     return
+  //   }
+  //   clearInterval(loader)
+  //   $('.sidenav').sidenav()
+  //   })
+  $(document).ready(function () {
+      $('.sidenav').sidenav()
+    })
+  </script>
+  <script>
+    function calc() {
+      var income = Number(document.getElementById('income').value);
+      var expenses = Number(document.getElementById('expenses').value);
+      var budget = income - expenses;
+
+      document.getElementById("budget").innerHTML = Number(budget);
+
+      localStorage.setItem('tempIncome', Number(document.getElementById('income').value))
+
+      document.getElementById('income').value = ''
+      document.getElementById('expenses').value = ''
+    }
+  </script>
+  <script src="./calculate.js"></script>
+
+  <!-- script for piechart -->
+          <!-- // data set: expense, cost, third is income - cost - expense
+          // These labels appear in the legend and in the tooltips when hovering different arcs -->
+<canvas id="myChart" width="400" height="400"></canvas>
+<script>
+  // var ctx = document.getElementById('myChart');
+  // var myChart = new Chart(ctx, {
+  //   type: 'pie',
+  //   data: {
+  //     labels: ['Remaining', 'Expenses', 'Activity Cost'],
+  //     datasets: [{
+  //       data: [
+  //         document.getElementById, 
+  //         19, 
+  //         3
+  //       ],
+  //       backgroundColor: [
+  //         'rgba(255, 99, 132, 0.2)',
+  //         'rgba(54, 162, 235, 0.2)',
+  //         'rgba(75, 192, 192, 0.2)'
+
+  //       ],
+  //       borderColor: [
+  //         'rgba(255, 99, 132, 1)',
+  //         'rgba(54, 162, 235, 1)',
+  //         'rgba(75, 192, 192, 1)'
+
+  //       ],
+  //       borderWidth: 1
+  //     }]
+  //   }
+  // });
+</script>
+</body>
+
+</html>
+
