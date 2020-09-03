@@ -8,13 +8,19 @@ document.getElementById('calculate').addEventListener('click', event => {
   })
     .then(
       user => {
-        document.getElementById('advice').innerHTML = `
+        const budget = document.getElementById('budget').innerHTML
+        const income = parseInt(localStorage.getItem('tempIncome'))
+        const expense = parseInt(localStorage.getItem('tempIncome')) - document.getElementById('budget').innerHTML
+        const activityCost = parseInt(document.getElementById('activity-cost').innerHTML)
+        const remaining = income - expense - activityCost
+        if (activityCost <= budget) {
+          document.getElementById('advice').innerHTML = `
         <div class="row">
       <div class="col s12 m6">
         <div class="card red lighten-2">
           <div class="card-content white-text">
             <span class="card-title">According to our calculations...</span>
-            <p>We advise that you can (or not) do this activity.</p>
+            <p>We advise that you can do this activity.</p>
           </div>
           <div class="card-action">
             <a href="./activity.html">View Activities Page</a>
@@ -23,14 +29,28 @@ document.getElementById('calculate').addEventListener('click', event => {
       </div>
     </div>
         `
+        } else {
+          document.getElementById('advice').innerHTML = `
+        <div class="row">
+      <div class="col s12 m6">
+        <div class="card red lighten-2">
+          <div class="card-content white-text">
+            <span class="card-title">According to our calculations...</span>
+            <p>We advise that you should not do this activity.</p>
+          </div>
+          <div class="card-action">
+            <a href="./activity.html">View Activities Page</a>
+          </div>
+        </div>
+      </div>
+    </div>
+        `
+        }
         console.log(user)
         console.log(parseInt(localStorage.getItem('tempIncome')))
         console.log(parseInt(document.getElementById('budget').innerHTML))
         console.log(parseInt(document.getElementById('activity-cost').innerHTML))
-        const income = parseInt(localStorage.getItem('tempIncome'))
-        const expense = parseInt(localStorage.getItem('tempIncome')) - document.getElementById('budget').innerHTML
-        const activityCost = parseInt(document.getElementById('activity-cost').innerHTML)
-        const remaining = income - expense - activityCost
+
         const ctx = document.getElementById('myChart')
         const myChart = new Chart(ctx, {
           type: 'pie',
