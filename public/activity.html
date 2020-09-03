@@ -39,19 +39,20 @@
       <button id="viewHistory">Recent Activities</button>
       <hr>
       <div id="activities"></div>
+      <aside id="floatUser">
+        <div class="row">
+          <div class="col s12 m6">
+            <p id="users"></p>
+          </div>
+        </div>
+      </aside>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col s12 m6">
-      <hr>
-      <div name="name" id="users"></div>
-    </div>
-  </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
     // let loader = setInterval(function () {
     //   if (document.readyState !== "complete")
@@ -70,60 +71,36 @@
       document.getElementById('activities').innerHTML = ''
       console.log('ping')
 
-      // GET ALL activities
-      axios.get('/api/activities')
-        .then(({ data }) => {
-          console.log(data)
-          data.forEach(activity => {
-            let activityElem = document.createElement('div')
-            activityElem.innerHTML = `
-            <div id= "${activity.id}" class="card">
-              <span class="card-title"> Activity Title: ${activity.name}</span>
-              <div class="card-content">
-                <p> Activity Cost: $${activity.cost} </p>
-                <p> Activity ID: ${activity.id}</p>
-              </div>
-            </div>
+// GET ALL activities
+axios.get('./api/users')
+      .then(({ data }) => {
+        data.forEach(user => {
+          let i = 0
+          Object.values(user).forEach(activity => {
+            if (Array.isArray(activity)){
+              console.log(activity)
+              let activityElem = document.createElement('div')
+              activityElem.innerHTML = `
+                <div id= "${activity[i].id}" class="card">
+                  <span class="card-title"><b>Activity Title: ${activity[i].name}</b></span>
+                  <div class="card-content">
+                    <h6> <u>Submitted By</u>: ${user.name}</h6>
+                    <p> Activity Cost: $${activity[i].cost}</p>
+                    <p> Activity ID: ${activity[i].id}</p>
+                    
+                  </div>
+                </div>
           `
+          i++
             document.getElementById('activities').prepend(activityElem)
-          })
+          }
         })
-        .catch(err => console.error(err))
+      })
     })
-
-    // GET ALL USERS
-    // axios.get('/api/users')
-    //   .then(({ data }) => {
-    //     data.forEach(user => {
-    //       let userElem = document.createElement('div')
-    //       userElem.innerHTML = `
-    //         <div id= "${user.id}" class="card">
-    //           <span class="card-title"> Who Made this Activity? ${user.name}</span>
-    //           <div class="card-content">
-    //             <h2> ${userId.name} </h2>
-    //           </div>
-    //         </div>  
-    //         `
-    //       document.getElementById('users').prepend(userElem)
-    //     })
-    //   })
-    //   .catch(err => console.log(err))
-
-    // let name = document.getElementById('name').value
-
-    // axios.get('/api/users')
-    //   .then(({ data }) => {
-    //     data.forEach(user => {
-    //       let userElem = document.createElement('div')
-    //       userElem.value = user.id
-    //       userElem.textContent = user.name
-
-    //       document.getElementById('users').append(userElem)
-    //     })
-    //   })
-    //   .catch(err => console.log(err))
+      .catch(err => console.log(err))
+  })
 
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
+
 </html>
