@@ -27,4 +27,13 @@ router.get('/users/:name', (req, res) => {
     .catch(err => console.log(err))
 })
 
+// router.get('/users/:id', (req, res) => {
+//   console.log(res)
+//   User.findOne({ where: { id: req.params.id }, include: Activity })
+//     .then(user => res.json(user)
+//     )
+//     .catch(err => console.log(err))
+// })
+
+
 module.exports = router
