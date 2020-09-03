@@ -6,34 +6,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+  <style>
+    body {
+      background-color: #e1f5fe;
+    }
+    .btn {
+      background-color: #a49adb;
+    }
+    .nav-wrapper {
+      background-color: #7cdda4;
+    }
+    #firstbox {
+      background-color: #f6fcff;
+      box-shadow: 5px 5px 2px #888888;
+      margin: 15px
+    }
+    button {
+      margin: 10px
+    }
+  </style>
   <title>Home</title>
 </head>
 
 <body>
 
-  <nav>
-    <div class="nav-wrapper">
-      <a href="index.html" class="brand-logo">App</a>
-      <a href="index.html" data-target="mobile-links" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="./calculate.html">Calculator</a></li>
-        <li><a href="./activity.html">Activities</a></li>
-      </ul>
-    </div>
-  </nav>
+<nav>
+  <div class="nav-wrapper">
+    <a href="index.html" class="brand-logo">App</a>
+    <a href="index.html" data-target="mobile-links" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./calculate.html">Calculator</a></li>
+      <li><a href="./activity.html">Activities</a></li>
+      <li><a href="./about.html">Meet the Team</a></li>
+    </ul>
+  </div>
+</nav>
 
-  <ul class="sidenav" id="mobile-links">
-    <li><a href="./index.html">Home</a></li>
-    <li><a href="./calculate.html">Calculator</a></li>
-    <li><a href="./activity.html">Activities</a></li>
-  </ul>
-
-  <div class="row">
+<ul class="sidenav" id="mobile-links">
+  <li><a href="./index.html">Home</a></li>
+  <li><a href="./calculate.html">Calculator</a></li>
+  <li><a href="./activity.html">Activities</a></li>
+  <li><a href="./about.html">Meet the Team</a></li>
+</ul>
+<br>
+  <div id="firstbox" class="row">
     <form class="col s12 m6">
       <div>
-        <div id="wrapper">
+        <div id="wrapper" class="row">
         <div class="input-field col s6">
           <input id="full-name" type="text" class="validate">
           <label for="full">Full Name</label>
