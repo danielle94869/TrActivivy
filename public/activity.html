@@ -67,6 +67,7 @@
   <script>
     document.getElementById('viewHistory').addEventListener('click', event => {
       event.preventDefault()
+      document.getElementById('activities').innerHTML = ''
       console.log('ping')
 
       // GET ALL activities
@@ -121,8 +122,6 @@
     //     })
     //   })
     //   .catch(err => console.log(err))
-
-
 
   </script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
